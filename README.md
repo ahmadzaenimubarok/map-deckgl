@@ -1,59 +1,187 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel + Inertia.js + React
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern full-stack web application built with **Laravel** (backend) and **React** (frontend) using **Inertia.js** as the bridge.
 
-## About Laravel
+## 🧱 Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Backend**: Laravel 12.x  
+- **Frontend**: React 18.x  
+- **Full-stack Bridge**: Inertia.js 2.x  
+- **Database**: PostgreSQL  
+- **Build Tool**: Vite 7.x  
+- **Styling**: Tailwind CSS 4.x  
+- **HTTP Client**: Axios  
+- **Runtime**: PHP 8.3+
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ⚙️ Prerequisites
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Make sure you have the following installed:
 
-## Learning Laravel
+- PHP 8.3 or higher  
+- Composer  
+- Node.js 18 or higher  
+- npm or yarn  
+- PostgreSQL server
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🚀 Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd <project-name>
+   ```
 
-## Laravel Sponsors
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Install JavaScript dependencies**
+   ```bash
+   npm install
+   ```
 
-### Premium Partners
+4. **Set up the environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5. **Configure database**
+   Update your `.env` file with PostgreSQL settings:
+   ```
+   DB_CONNECTION=pgsql
+   DB_HOST=127.0.0.1
+   DB_PORT=5432
+   DB_DATABASE=your_database
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ```
 
-## Contributing
+6. **Run database migrations (if any)**
+   ```bash
+   php artisan migrate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🧑‍💻 Development
 
-## Code of Conduct
+### Start Development Server
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+To run the application in development mode:
 
-## Security Vulnerabilities
+```bash
+# Run Vite development server (asset bundler)
+npm run dev
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# In another terminal, run Laravel's built-in server
+php artisan serve
+```
 
-## License
+Or run both simultaneously:
+```bash
+npm run dev & php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Your app will be available at **http://localhost:8000**
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+## 📁 Project Structure
+
+```
+├── app/
+│   ├── Http/
+│   │   └── Controllers/      # Controllers handle backend logic
+├── resources/
+│   ├── js/
+│   │   ├── Pages/            # React components for Inertia pages
+│   │   ├── Layouts/          # Shared layouts
+│   │   ├── app.jsx           # Inertia.js + React entry point
+│   │   └── bootstrap.js      # JS initialization
+│   └── views/
+│       └── app.blade.php     # Root Blade template for Inertia
+├── routes/
+│   └── web.php               # Application routes
+├── public/                   # Public assets
+└── vite.config.js            # Vite configuration
+```
+
+## 🔑 Key Features
+
+### Inertia.js Integration
+
+This project uses **Inertia.js** to connect Laravel and React seamlessly — no separate API needed.
+
+- **Server-side**: Controllers use `Inertia::render()` to return data directly to React pages.  
+- **Client-side**: React pages receive props from Laravel and can interact with the backend through Inertia.
+
+### Component Organization
+
+- **Pages** → `resources/js/Pages/` — Each file represents a route page.  
+- **Layouts** → Shared UI wrappers (navigation, headers, etc.).  
+- **Entry Point** → `resources/js/app.jsx` — initializes Inertia + React app.
+
+## 🧭 Development Workflow
+
+1. **Create a New Page**
+   - Add a new JSX file in `resources/js/Pages/`
+   - Define a route in `routes/web.php`
+   - Render it from a controller using `Inertia::render()`
+
+2. **Styling**
+   - Use Tailwind CSS utility classes  
+   - Assets are automatically compiled by Vite
+
+3. **Hot Reloading**
+   - Vite provides fast HMR (Hot Module Replacement) for instant feedback
+
+## 🧰 Useful Commands
+
+### Laravel
+
+```bash
+php artisan serve          # Start Laravel server
+php artisan migrate        # Run database migrations
+php artisan make:controller # Create a new controller
+```
+
+### NPM
+
+```bash
+npm run dev               # Start Vite dev server
+npm run build             # Build production assets
+npm install               # Install dependencies
+npm update                # Update dependencies
+```
+
+## 🧩 Troubleshooting
+
+### Common Issues
+
+1. **Blank Page / No Output**
+   - Ensure Vite is running (`npm run dev`)
+   - Check browser console for JavaScript errors
+   - Verify routes and Inertia setup in your controller
+
+2. **Build Failures**
+   - Delete `node_modules` and `public/build`, then reinstall dependencies
+   - Clear Laravel cache:
+     ```bash
+     php artisan config:clear
+     php artisan route:clear
+     php artisan view:clear
+     ```
+
+3. **Permission Errors**
+   ```bash
+   chmod -R 775 storage bootstrap/cache
+   ```
+
+## 📜 License
+
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for details.
