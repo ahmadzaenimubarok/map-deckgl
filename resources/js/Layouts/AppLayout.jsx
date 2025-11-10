@@ -1,0 +1,7 @@
+export default function AppLayout({ children }) {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <main className="p-4">{children}</main>
+    </div>
+  );
+}
