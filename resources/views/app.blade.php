@@ -8,6 +8,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.jsx'])
         <!-- In this article, we are going to use JSX syntax for React components -->
         @inertiaHead
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         @inertia
