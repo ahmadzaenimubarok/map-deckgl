@@ -10,3 +10,4 @@ Route::get('/', [HomeController::class, 'index']);
 // Import routes
 Route::post('/import/geojson', [ImportController::class, 'importGeoJson'])->name('import.geojson');
 Route::get('/buildings', [BuildingController::class, 'index'])->name('api.buildings.index');
+Route::get('/buildings/geojson', [BuildingController::class, 'geojson'])->name('api.buildings.geojson');

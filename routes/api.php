@@ -8,4 +8,5 @@ use App\Http\Controllers\BuildingController;
 Route::prefix('api')->group(function () {
     Route::post('/import/geojson', [ImportController::class, 'importGeoJson'])->name('api.import.geojson');
     Route::get('/buildings', [BuildingController::class, 'index'])->name('api.buildings.index');
+    Route::get('/buildings/geojson', [BuildingController::class, 'geojson'])->name('api.buildings.geojson');
 });
